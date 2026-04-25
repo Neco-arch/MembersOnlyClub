@@ -8,13 +8,15 @@
   <h1>Sign Up</h1>
   <form action="sign-up" method="POST">
     <label for="Firstname">Firstname</label>
-    <input id="Firstname" name="Firstname" placeholder="Firstname" type="text" />
+    <input id="Firstname" name="Firstname" placeholder="Firstname" type="text" required />
     <label for="Lastname">Lastname</label>
-    <input id="Lastname" name="Lastname" placeholder="Lastname" type="text" />
+    <input id="Lastname" name="Lastname" placeholder="Lastname" type="text" required />
     <label for="username">Email</label>
-    <input id="email" name="email" placeholder="email" type="email" />
+    <input id="email" name="email" placeholder="email" type="email"  required/>
     <label for="password">Password</label>
-    <input id="password" name="password" type="password" />
+    <input id="password" name="password" type="password" required />
+    <label for="confirmpassword">confirmpassword</label>
+    <input id="confirmpassword" name="confirmpassword" type="password" required/>
     <button type="submit">Sign Up</button>
   </form>
 </body>

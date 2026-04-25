@@ -43,21 +43,20 @@ app.use(session(
 app.use(passport.session());
 
 passport.serializeUser((user, done) => {
-    done(null, user.id);
+    done(null, user.member_id);
 });
+
 
 passport.deserializeUser(async (id, done) => {
     try {
         const { rows } = await pool.query("SELECT * FROM member WHERE member_id = $1", [id]);
         const user = rows[0];
-
+        
         done(null, user);
     } catch (err) {
         done(err);
     }
 });
-
-
 
 // Render Index page and Sign in page
 app.get("/", (req, res, next) => {
@@ -66,15 +65,14 @@ app.get("/", (req, res, next) => {
 })
 
 app.get("/sign-in", (req, res) => {
-    res.render("sign-in")
+    res.render("member/sign-in")
 })
 
-app.post("/sign-in", (req, res, next) => {
+app.post("/log-in",
     passport.authenticate("local", {
         successRedirect: "/",
         failureRedirect: "/"
-    })
-})
+    }))
 
 app.listen(3000, () => {
     console.log("app is listening at port 3000")
