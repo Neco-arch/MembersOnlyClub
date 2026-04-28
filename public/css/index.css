@@ -1,0 +1,43 @@
+main {
+    height: 90vh;
+    display: flex;
+    flex: auto;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+
+button {
+    width: 150px;
+    height: 45px;
+    border-radius: 2rem;
+    border-style: none;
+    background-color: coral;
+}
+
+.Join_Now {
+    display: flex;
+    justify-content: center;
+}
+
+.Description {
+    font-weight: 100;
+    text-align: center;
+}
+
+.WelcomeMassage {
+    font-size: 4rem;
+}
+
+.Framer_mainpage {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+h1 {
+    text-align: center;
+}
+

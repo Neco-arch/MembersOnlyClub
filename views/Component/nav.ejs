@@ -1,0 +1,20 @@
+<header>
+  <nav>
+    <div class="nav-brand">
+      <h1>Member Only</h1>
+    </div>
+
+    <div class="Main-nav">
+      <a href="/">Homepage</a>
+      <a href="/party">Party</a>
+    </div>
+
+    <div class="nav-auth">
+      <% if (locals.user) { %>
+        <a href="/logout" class="btn-signout">Log out</a>
+      <% } else { %>
+        <a href="/login" class="btn-signin">Sign in</a>
+      <% } %>
+    </div>
+  </nav>
+</header>

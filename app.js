@@ -15,7 +15,7 @@ const app = express()
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: false }));
-
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Router
 
@@ -51,7 +51,7 @@ passport.deserializeUser(async (id, done) => {
     try {
         const { rows } = await pool.query("SELECT * FROM member WHERE member_id = $1", [id]);
         const user = rows[0];
-        
+
         done(null, user);
     } catch (err) {
         done(err);
@@ -60,7 +60,6 @@ passport.deserializeUser(async (id, done) => {
 
 // Render Index page and Sign in page
 app.get("/", (req, res, next) => {
-    console.log(req.user)
     res.render("index", { user: req.user })
 })
 

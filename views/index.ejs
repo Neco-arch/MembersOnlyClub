@@ -4,8 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Member Only club</title>
+    <link rel="stylesheet" href="./css/nav.css">
+    <link rel="stylesheet" href="./css/index.css">
 </head>
 <body>
-    <h2>Homepage</h2>
+    <%- include('Component/nav' , {user : user }) -%>
+    <main>
+        <div class="Framer_mainpage">
+            <div>
+            <h1 class="WelcomeMassage">Welcome to member only </h1>
+            <h2 class="Description">The place where you can join with other people </h2>
+            </div>
+              <div class="Join_Now">
+                <% if (locals.user) { %>
+                    <button>Dashboard</button>
+                    <% } else { %>
+                        <button>Join now</button>
+                        <% } %>
+                    </div>
+        </div>
+        
+    </main>
 </body>
 </html>
