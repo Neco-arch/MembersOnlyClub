@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./css/index.css">
 </head>
 <body>
-    <%- include('Component/nav' , {user : user }) -%>
+    <%- include('./Component/nav' , {user : user }) -%>
     <main>
         <div class="Framer_mainpage">
             <div>
@@ -16,14 +16,13 @@
             <h2 class="Description">The place where you can join with other people </h2>
             </div>
               <div class="Join_Now">
-                <% if (locals.user) { %>
-                    <button>Dashboard</button>
-                    <% } else { %>
-                        <button>Join now</button>
-                        <% } %>
+                    <button>Join now</button>
                     </div>
         </div>
-        
+
+        <div class="Framer_Party Feature">
+            <h2 class="Party_description">We offer many club to choose from</h2>
+        </div>
     </main>
 </body>
 </html>

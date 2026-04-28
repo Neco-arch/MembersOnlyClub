@@ -2,6 +2,9 @@ header { width: 100%; }
 
 nav {
   display: flex;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 20px;
   justify-content: space-between;
   align-items: center;
   background: #fff;

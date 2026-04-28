@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Member Only</title>
+    <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="/css/member.css">
+</head>
+<body>
+    <%- include('../Component/nav' , {user : user }) -%>
+    <div class="Framer">
+        <h2 class="Welcome_back">Welcome back <%=user.firstname + " " + user.lastname %>,</h2>
+        <div class="Action">
+        <button class="CreatePost">Create a Post</button>
+        <button class="JoinClub">Join Club</button>
+        </div>
+        <div class="User_Own_Post">
+        <h2>There is noting here click create post to have fun</h2>
+    </div>
+    </div>
+    <dialog id="Dialog">
+        <form action="SendMassage" method="post" id="PostDialog">
+            <h2>What is on your mind</h2>
+            <textarea class="Postmassage" maxlength="1000" name="massage" ></textarea>
+            <button type="submit">Post</button>
+        </form>
+        <button class="CloseDialog">Close Dialog</button>
+    </dialog>
+
+    <script>
+        const dialog = document.querySelector("dialog")
+        document.querySelector(".CreatePost").addEventListener("click" , () => {
+            dialog.showModal()
+        })
+
+        document.querySelector(".CloseDialog").addEventListener("click" , () => {
+            dialog.close()
+        })
+    </script>
+</body>
+</html>

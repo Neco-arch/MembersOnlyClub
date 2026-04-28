@@ -18,7 +18,7 @@ router.post("/sign-up", [
         if (rows.length > 0) {
             throw new Error("E-mail in use")
         }
-    })
+    }),
 
 ], async (req, res, next) => {
     try {

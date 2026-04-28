@@ -1,0 +1,16 @@
+CREATE TABLE Member (
+    member_id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+    FirstName VARCHAR(50) NOT NULL,
+    LastName VARCHAR(50) NOT NULL,
+    Email VARCHAR(100) UNIQUE,
+    membership_status VARCHAR(100) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+);
+
+CREATE TABLE massage_log (
+    Title  NOT NULL,
+    Author  NOT NULL,
+    Text NOT NULL,
+    Time ,
+    
+)
