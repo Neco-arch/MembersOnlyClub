@@ -5,6 +5,7 @@ const passport = require("passport");
 const LocalStrategy = require('passport-local').Strategy;
 const NewMemberRouter = require('./routes/newmember')
 const MemberRouter = require('./routes/member')
+const BoardRouter = require('./routes/board')
 const pgSession = require('connect-pg-simple')(session);
 const path = require('node:path')
 
@@ -29,7 +30,6 @@ app.use(session({
     cookie: { maxAge: 30 * 24 * 60 * 60 * 1000 }
 }))
 
-app.use(passport.initialize());  // ← you were missing this
 app.use(passport.session());
 
 const PassportConfig = require('./config/passport.js');
@@ -57,6 +57,7 @@ app.use((req, res, next) => {
 
 app.use("/newmember", NewMemberRouter);
 app.use("/member", MemberRouter);
+app.use("/board", BoardRouter)
 
 app.get("/", (req, res) => {
     res.render("index", { user: req.user })

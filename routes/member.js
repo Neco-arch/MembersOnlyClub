@@ -2,9 +2,6 @@ const express = require('express');
 const pool = require("../db/pool.js");
 const router = express();
 
-router.get('/', (req, res) => {
-
-})
 
 router.get('/dashboard', async (req, res) => {
     const username = req.user.firstname + req.user.lastname
@@ -37,9 +34,9 @@ router.post('/joinsecertclub', async (req, res) => {
 
 router.post('/SendMassage', async (req, res) => {
     const MassageDate = new Date().toLocaleString()
-    const querymassage = 'INSERT INTO massage_log(author , text , time) VALUES ($1 , $2 , $3)'
+    const querymassage = 'INSERT INTO massage_log(author , text , time , membership) VALUES ($1 , $2 , $3 , $4)'
     try {
-        await pool.query(querymassage, [req.user.firstname + req.user.lastname, req.body.massage, MassageDate])
+        await pool.query(querymassage, [req.user.firstname + req.user.lastname, req.body.massage, MassageDate, req.user.membership_status])
         res.redirect("/member/dashboard")
     } catch (error) {
         console.log(error)
