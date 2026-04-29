@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,36 +8,76 @@
     <link rel="stylesheet" href="/css/nav.css">
     <link rel="stylesheet" href="/css/member.css">
 </head>
+
 <body>
-    <%- include('../Component/nav' , {user : user }) -%>
+    <%- include('../Component/nav', { user: user }) %>
     <div class="Framer">
-        <h2 class="Welcome_back">Welcome back <%=user.firstname + " " + user.lastname %>,</h2>
+        <h2 class="Welcome_back">Welcome back <%= user.firstname + " " + user.lastname %>,</h2>
+        <h3>Member of <%= user.membership_status %></h3>
         <div class="Action">
-        <button class="CreatePost">Create a Post</button>
-        <button class="JoinClub">Join Club</button>
+            <button class="CreatePost">Create a Post</button>
+            <button class="JoinClub">Join Party</button>
         </div>
         <div class="User_Own_Post">
-        <h2>There is noting here click create post to have fun</h2>
+            <% if (locals.user) { %>
+                <% post.forEach(function(post) { %>
+                    <div class="EachPost">
+                        <div class="Postdetail">
+                            <img src="/img/profile.jpg" class="ProfilePicture">
+                            <h3 class="Author">By <%=post.author%></h3>
+                            <h3 class="TimeStamp">At <%=post.time %></h3>
+                        </div>
+                    <h2 class="Massage"><%=post.text %></h2>
+                    <div class="Action">
+                        <form action="deletepost" method="post">
+                            <input type="hidden" value=" <%=post.id%>" name="postid">
+                            <button type="submit">Deletepost</button>
+                        </form>
+                    </div>
+                    </div>
+                <% }); %>
+            <% } else { %>
+                <h2>There is nothing to see</h2>
+            <% } %>
+        </div>
     </div>
-    </div>
+
     <dialog id="Dialog">
         <form action="SendMassage" method="post" id="PostDialog">
             <h2>What is on your mind</h2>
-            <textarea class="Postmassage" maxlength="1000" name="massage" ></textarea>
+            <textarea class="Postmassage" maxlength="1000" name="massage"></textarea>
             <button type="submit">Post</button>
         </form>
         <button class="CloseDialog">Close Dialog</button>
     </dialog>
 
+    <dialog id="Dialog" class="Join_Party">
+        <form action="joinsecertclub" method="post" id="PostDialog">
+            <h2>Joining Party?</h2>
+            <label>InviteCode : <input type="text" name="party_code" class="SecertCode"> </label>
+            <button type="submit" class="Join_club">Join</button>
+        </form>
+        <button class="CloseDialog" id="Close_Party">Close Dialog</button>
+    </dialog>
     <script>
-        const dialog = document.querySelector("dialog")
-        document.querySelector(".CreatePost").addEventListener("click" , () => {
-            dialog.showModal()
+        const dialog_SendMassage = document.querySelector("dialog");
+        const JoinParty = document.querySelector(".Join_Party");
+        document.querySelector(".CreatePost").addEventListener("click", () => {
+            dialog_SendMassage.showModal();
+        })
+        document.querySelector(".CloseDialog").addEventListener("click", () => {
+            dialog_SendMassage.close();
         })
 
-        document.querySelector(".CloseDialog").addEventListener("click" , () => {
-            dialog.close()
+        document.querySelector(".JoinClub").addEventListener("click" , () => {
+            JoinParty.showModal();
         })
+
+        document.querySelector("#Close_Party").addEventListener("click" , () => {
+            JoinParty.close()
+        })
+
     </script>
 </body>
+
 </html>

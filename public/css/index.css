@@ -9,6 +9,7 @@ main {
     padding-left: 10%;
     padding-right: 10%;
     gap: 10rem;
+    color: white;
 }
 
 button {
@@ -17,6 +18,7 @@ button {
     border-radius: 2rem;
     border-style: none;
     background-color: coral;
+    color: white;
 }
 
 .Join_Now {
@@ -48,3 +50,14 @@ h1 {
     text-align: center;
 }
 
+
+
+.decorate {
+    background-color: rgb(196, 122, 114);
+    position: fixed;     /* Stays in place while scrolling */
+    top: 6.5vh;
+    left: 0;
+    width: 100vw;        /* Full viewport width */
+    height: 80vh;       /* Full viewport height */
+    z-index: -1;         /* Behind all other content */
+}

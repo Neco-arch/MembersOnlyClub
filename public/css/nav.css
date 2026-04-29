@@ -3,19 +3,19 @@ header { width: 100%; }
 nav {
   display: flex;
   position: sticky;
-  position: -webkit-sticky;
-  top: 20px;
+  position: -webkit-sticky; /* Move this ABOVE the standard one */
+  top: 0;                   /* Use 0, not 20px — sticky needs a threshold */
   justify-content: space-between;
   align-items: center;
   background: #fff;
-  border: 1px solid rgba(0,0,0,0.08);
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 12px;
   padding: 0 1.5rem;
   height: 56px;
   gap: 1rem;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  z-index: 100; /* Prevents content from overlapping the nav when scrolling */
 }
-
 .nav-brand {
   display: flex;
   align-items: center;
