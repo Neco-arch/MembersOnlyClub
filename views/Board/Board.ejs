@@ -4,8 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Member Only</title>
+    <link rel="stylesheet" href="/css/member.css">
+    <link rel="stylesheet" href="/css/board.css">
+    <link rel="stylesheet" href="/css/nav.css">
 </head>
 <body>
-    
+    <%- include('../Component/nav', { user: user }) %>
+    <div class="Header">
+    <h1>All post</h1>
+    <h2>This where people share thier opinion</h2>
+    <h3>You will only see people with in the same club ONLY!</h3>
+    </div>
+    <div class="Grid_framer">
+        <% posts.forEach(( post ) => { %>
+            <div class="EachPost">
+                <div class="Postdetail">
+                    <img src="/img/profile.jpg" class="ProfilePicture">
+                    <h3 class="Author">By <%=post.author%></h3>
+                    <h3 class="TimeStamp">At <%=post.time %></h3>
+                </div>
+                <h2 class="Massage"><%=post.text %></h2>
+                </div>
+        <% }) %>
+    </div>
 </body>
 </html>

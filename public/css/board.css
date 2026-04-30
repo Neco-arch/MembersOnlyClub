@@ -1,0 +1,8 @@
+.Header , .Grid_framer {
+    padding: 1rem;
+}
+
+.Grid_framer {
+    display: grid;
+    grid-template-columns: repeat(3 , 1fr);
+}
