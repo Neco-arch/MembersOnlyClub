@@ -2,22 +2,42 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sign Up</title>
+  <link rel="stylesheet" href="/css/sign-up.css">
 </head>
 <body>
-  <h1>Sign Up</h1>
-  <form action="sign-up" method="POST">
-    <label for="Firstname">Firstname</label>
-    <input id="Firstname" name="Firstname" placeholder="Firstname" type="text" required />
-    <label for="Lastname">Lastname</label>
-    <input id="Lastname" name="Lastname" placeholder="Lastname" type="text" required />
-    <label for="username">Email</label>
-    <input id="email" name="email" placeholder="email" type="email"  required/>
-    <label for="password">Password</label>
-    <input id="password" name="password" type="password" required />
-    <label for="confirmpassword">confirmpassword</label>
-    <input id="confirmpassword" name="confirmpassword" type="password" required/>
-    <button type="submit">Sign Up</button>
-  </form>
+<div class="Wrapper">
+  <div class="Framer_Flex">
+    <h1>Create an account</h1>
+    <p class="subtitle">Join us today — it only takes a minute.</p>
+    <form action="sign-up" method="POST">
+      <div class="name-row">
+        <div class="field">
+          <label for="Firstname">First name</label>
+          <input id="Firstname" name="Firstname" placeholder="Jane" type="text" required />
+        </div>
+        <div class="field">
+          <label for="Lastname">Last name</label>
+          <input id="Lastname" name="Lastname" placeholder="Doe" type="text" required />
+        </div>
+      </div>
+      <div class="field">
+        <label for="email">Email address</label>
+        <input id="email" name="email" placeholder="jane@example.com" type="email" required />
+      </div>
+      <div class="field">
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" placeholder="Min. 8 characters" required />
+      </div>
+      <div class="field">
+        <label for="confirmpassword">Confirm password</label>
+        <input id="confirmpassword" name="confirmpassword" type="password" placeholder="Repeat your password" required />
+      </div>
+      <button type="submit">Sign up</button>
+    </form>
+    <p class="login-link">Already have an account? <a href="/sign-in">Sign in</a></p>
+  </div>
+</div>
 </body>
 </html>

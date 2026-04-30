@@ -15,17 +15,40 @@
     <h2>This where people share thier opinion</h2>
     <h3>You will only see people with in the same club ONLY!</h3>
     </div>
-    <div class="Grid_framer">
-        <% posts.forEach(( post ) => { %>
-            <div class="EachPost">
-                <div class="Postdetail">
-                    <img src="/img/profile.jpg" class="ProfilePicture">
-                    <h3 class="Author">By <%=post.author%></h3>
-                    <h3 class="TimeStamp">At <%=post.time %></h3>
+<div class="Grid_framer">
+    <% if (posts && posts.length > 0) { %>
+        <% if (admin_status === "admin") { %>
+            <% posts.forEach((post) => { %>
+                <div class="EachPost">
+                    <div class="Postdetail">
+                        <img src="/img/profile.jpg" class="ProfilePicture">
+                        <h3 class="Author">By <%=post.author%></h3>
+                        <h3 class="TimeStamp">At <%=post.time %></h3>
+                    </div>
+                    <h2 class="Massage"><%=post.text %></h2>
+                    <div>
+                        <form action="deletepost" method="post">
+                            <input type="hidden" value="<%= post.id%>" name="Post_ID">
+                            <button type="submit">Delete</button>
+                        </form>
+                    </div>
                 </div>
-                <h2 class="Massage"><%=post.text %></h2>
+            <% }) %>
+        <% } else { %>
+            <% posts.forEach((post) => { %>
+                <div class="EachPost">
+                    <div class="Postdetail">
+                        <img src="/img/profile.jpg" class="ProfilePicture">
+                        <h3 class="Author">By <%=post.author%></h3>
+                        <h3 class="TimeStamp">At <%=post.time %></h3>
+                    </div>
+                    <h2 class="Massage"><%=post.text %></h2>
                 </div>
-        <% }) %>
-    </div>
+            <% }) %>
+        <% } %>
+    <% } else { %>
+        <p class="NoPosts">No posts available.</p>
+    <% } %>
+</div>
 </body>
 </html>

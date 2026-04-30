@@ -50,14 +50,25 @@ h1 {
     text-align: center;
 }
 
+.Framer_Club_Grid {
+    display: grid;
+    grid-template-columns: repeat(3 , 1fr);
+    gap: 3rem;
+}
+
+.Club_card {
+    background-color: rgb(181, 127, 127);
+    border-radius: 1rem;
+}
+
 
 
 .decorate {
     background-color: rgb(196, 122, 114);
     position: fixed;     /* Stays in place while scrolling */
-    top: 6.5vh;
+    top: 6.5vh; 
     left: 0;
     width: 100vw;        /* Full viewport width */
-    height: 80vh;       /* Full viewport height */
+    height: 100vh;       /* Full viewport height */
     z-index: -1;         /* Behind all other content */
 }

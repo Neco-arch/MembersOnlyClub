@@ -17,13 +17,26 @@
             <h2 class="Description">The place where you can join with other people </h2>
             </div>
               <div class="Join_Now">
-                    <button>Join now</button>
-                    </div>
+                    <button class="Join_Button">Join now</button>
+                </div>
         </div>
-
         <div class="Framer_Party Feature">
             <h2 class="Party_description">We offer many club to choose from</h2>
         </div>
+        <div class="Framer_Club_Grid">
+            <% clubs.forEach((club) => { %>
+                <div class="Club_card">
+                <h2><%= club.clubname %></h2>
+                <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam, accusamus saepe minus, placeat itaque voluptatibus rem enim quisquam ducimus qui quibusdam quaerat illum quis vitae laudantium quas, eum expedita at?</h4>
+                </div>
+            <% }) %>
+        </div>
     </main>
+
+    <script>
+        document.querySelector(".Join_Button").addEventListener("click" , () => {
+            window.location.href = "/newmember/sign-up"
+        })
+    </script>
 </body>
 </html>

@@ -59,12 +59,18 @@ app.use("/newmember", NewMemberRouter);
 app.use("/member", MemberRouter);
 app.use("/board", BoardRouter)
 
-app.get("/", (req, res) => {
-    res.render("index", { user: req.user })
+app.get("/", async (req, res) => {
+    const club = await pool.query("SELECT * FROM clubs")
+    res.render("index", { user: req.user, clubs: club.rows })
 })
 
 app.get("/sign-in", (req, res) => {
     res.render("member/sign-in")
+})
+
+app.get("/logout", (req, res) => {
+    res.clearCookie('connect.sid');
+    res.redirect("/sign-up")
 })
 
 app.post("/log-in",

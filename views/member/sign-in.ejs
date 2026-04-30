@@ -4,15 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Member Only Club</title>
+    <link rel="stylesheet" href="/css/sign-in.css">
 </head>
 <body>
-    <h1>Sign in  Page</h1>
-<form action="/log-in" method="POST">
-  <label for="username">Email</label>
-  <input id="email" name="email" placeholder="email" type="email" />
-  <label for="password">Password</label>
-  <input id="password" name="password" type="password" />
-  <button type="submit">Log In</button>
-</form>
+  <div class="wrapper">
+    <h1>Welcome back</h1>
+    <p class="subtitle">Sign in to your account to continue.</p>
+    <form action="/log-in" method="POST">
+      <div class="field">
+        <label for="email">Email address</label>
+        <input id="email" name="email" placeholder="jane@example.com" type="email" required />
+      </div>
+      <div class="field">
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" placeholder="Your password" required />
+      </div>
+      <button type="submit">Log in</button>
+    </form>
+    <p class="signup-link">Don't have an account? <a href="/newmember/sign-up">Sign up</a></p>
+  </div>
 </body>
 </html>

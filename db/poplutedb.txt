@@ -14,3 +14,21 @@ CREATE TABLE massage_log (
     Time ,
     
 )
+
+CREATE TABLE clubs(
+    club_id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+    clubname VARCHAR(255),
+    code VAR(255),
+)
+
+INSERT INTO clubs (club_id, clubname, code) VALUES
+('The Book Nook',     'BKN'),
+('Tech Innovators',   'TIN'),
+('Fitness Freaks',    'FIT'),
+('Art & Soul',        'ARS'),
+('Language Exchange', 'LNG'),
+('Chess Masters',     'CHM'),
+('Film Buffs',        'FLB'),
+('Music Jam',         'MJM'),
+('Nature Explorers',  'NTX'),
+( 'Debate Club',       'DBC');

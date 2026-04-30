@@ -5,19 +5,21 @@
     </div>
 
     <div class="Main-nav">
-      <a href="/">HomePage</a>
       <% if (locals.user) { %>
         <a href="/board">Board</a>
         <a href="/member/dashboard">Dashboard</a>
-
-        <% } %>
+        <% } else { %>
+          <a href="/">HomePage</a>
+          <%
+        }%>
     </div>
 
     <div class="nav-auth">
       <% if (locals.user) { %>
         <a href="/logout" class="btn-signout">Log out</a>
       <% } else { %>
-        <a href="/login" class="btn-signin">Sign in</a>
+        <a href="/newmember/sign-up" class="btn-signin">Sign up</a>
+        <a href="/sign-in" class="btn-signin">Sign in</a>
       <% } %>
     </div>
   </nav>
